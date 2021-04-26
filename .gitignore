@@ -2,7 +2,7 @@
 
 *.iml
 *.log
-build/
+#build/
 coverage/
 node_modules/
 xcuserdata/
