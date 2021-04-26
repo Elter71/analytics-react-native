@@ -198,6 +198,10 @@ class RNAnalyticsModule(context: ReactApplicationContext): ReactContextBaseJavaM
             Analytics.setSingletonInstance(
                     RNAnalytics.buildWithIntegrations(builder)
             )
+            //Because without this trackApplicationLifecycleEvents don't work on first run
+            if(options.getBoolean("trackAppLifecycleEvents")) {
+                this.trackApplicationLifecycleEvents(writeKey)
+            }
         } catch(e2: IllegalStateException) {
             // pass if the error is due to calling setSingletonInstance multiple times
 
